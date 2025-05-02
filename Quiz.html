@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            background: snow;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            text-align: left;
+            direction: ltr;
+        }
+        
+        .question {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .option {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .option>* {
+            padding: 12px 15px;
+            border: none;
+            border-radius: 10px;
+            background: #eee;
+            cursor: pointer;
+            -webkit-transition: all 0.3 ease duration timing-function delay;
+            -moz-transition: all 0.3 ease duration timing-function delay;
+            transition: all 0.3 ease duration timing-function delay;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .option>*:hover {
+            background: #d1e7ff;
+            transform: scale(1.02);
+        }
+        
+        #btn {
+            background: #007bff;
+            color: white;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            -webkit-transition: background 0.3s ease duration timing-function delay;
+            -moz-transition: background 0.3s ease duration timing-function delay;
+            transition: background 0.3s ease duration timing-function delay;
+            margin-top: 10px;
+        }
+        
+        #btn:hover {
+            background: #0056b3;
+        }
+        
+        #result {
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .progress_container {
+            width: 100%;
+            background: #eee;
+            height: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+        }
+        
+        .progress_container ::-webkit-progress-bar {
+            background: #eee;
+            border-radius: 10px;
+        }
+        
+        .progress_container ::-webkit-progress-value {
+            background: #eee;
+            border-radius: 10px;
+        }
+        
+        .progress_bar {
+            height: 100%;
+            width: 0;
+            background: #4caf50;
+            border-radius: 10px;
+            transition: width 0.3s;
+        }
+        
+        @media (max-width:480px) {
+            .container {
+                padding: 20px;
+            }
+            .question {
+                font-size: 20px;
+            }
+            .option>* {
+                font-size: 15px;
+                padding: 10px 15px;
+            }
+            #btn {
+                font-size: 15px;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="progress_container">
+            <div class="progress_bar" id="progress_bar">
+
+            </div>
+        </div>
+        <div class="quiz" id="quiz">
+            <h1 class="question" id="qu"></h1>
+            <div class="option" id="option"></div>
+            <button id="btn" onclick="clickbtn()">Next</button>
+        </div>
+        <div id="result"></div>
+    </div>
+    <script src="Quiz.js"></script>
+</body>
+
+</html>
